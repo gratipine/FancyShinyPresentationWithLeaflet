@@ -1,0 +1,29 @@
+#Leaflet
+
+##First plot
+
+```{r}
+library(leaflet)
+my_map <- leaflet() %>%
+  addTiles()
+```
+
+##Adding markers
+
+```{r}
+my_map <- my_map %>%
+  addMarkers(lat = 39.2980803, lng = -76.5898801, popup =  "Near Jeff Leek's office")
+my_map
+```
+
+## Adding many markers
+```{r} 
+set.seed(2016-04-25)
+df <- data.frame(lat = runif(20, min = 39.2, max = 39.3),
+                 lng = runif(20, min = -76.6, max = -76.5))
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers()
+
+```
